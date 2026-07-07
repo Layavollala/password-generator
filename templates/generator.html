@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="generator-section">
+
+    <div class="generator-container">
+
+        <h1>Password Generator</h1>
+
+
+        <form id="generator-form" action="/generator" method="POST">
+
+            <div id="server-error" data-error="{% if error %}{{ error }}{% endif %}"></div>
+
+            <div class="form-group">
+
+                <label>Password Length</label>
+
+                <input
+                    type="number"
+                    id="length"
+                    name="length"
+                    min="0"
+                    max="50"
+                    value="0"
+                    required>
+
+            </div>
+
+            <div class="checkbox-group">
+
+                <label>
+                    <input type="checkbox" name="uppercase">
+                    Uppercase Letters
+                </label>
+
+                <label>
+                    <input type="checkbox" name="lowercase">
+                    Lowercase Letters
+                </label>
+
+                <label>
+                    <input type="checkbox" name="numbers">
+                    Numbers
+                </label>
+
+                <label>
+                    <input type="checkbox" name="symbols">
+                    Special Characters
+                </label>
+
+            </div>
+
+            <br>
+
+            <button type="submit" class="generate-btn">
+
+                Generate Password
+
+            </button>
+
+        </form>
+
+        {% if password %}
+
+        <div class="result-box">
+
+            <h2>Your Password</h2>
+
+            <input
+                type="text"
+                id="password"
+                value="{{ password }}"
+                readonly>
+
+            <button onclick="copyPassword()">
+
+                Copy Password
+
+            </button>
+
+            <h3>
+
+                Strength :
+                <span class="strength">{{ strength }}</span>
+
+            </h3>
+
+        </div>
+
+        {% endif %}
+
+        <div id="toast" class="toast" aria-live="polite" role="status"></div>
+
+    </div>
+
+</section>
+
+{% endblock %}

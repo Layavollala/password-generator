@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="contact">
+
+    <h1>Contact Us</h1>
+
+    <p>
+
+        Have questions or suggestions?
+        Feel free to contact us.
+
+    </p>
+
+    <div id="server-error" data-error="{% if error %}{{ error }}{% endif %}"></div>
+    <div id="server-success" data-success="{% if success %}{{ success }}{% endif %}"></div>
+
+    <form action="/contact" method="POST">
+
+        <input
+            type="text"
+            name="full_name"
+            placeholder="Full Name"
+            required
+            value="{{ name or '' }}">
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            value="{{ email or '' }}">
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required
+            value="{{ subject or '' }}">
+
+        <textarea
+            name="message"
+            rows="6"
+            placeholder="Your Message"
+            required>{{ message or '' }}</textarea>
+
+        <button type="submit">
+
+            Send Message
+
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}

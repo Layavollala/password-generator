@@ -1,1 +1,150 @@
+{% extends "base.html" %}
 
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Generate Strong &
+            Secure Passwords
+        </h1>
+
+        <p>
+
+            Welcome to the Password Generator System.
+
+            This web application allows users to generate highly secure
+            passwords by selecting different password criteria such as
+            uppercase letters, lowercase letters, numbers and special
+            symbols.
+
+            Strong passwords help protect your online accounts from
+            hacking and unauthorized access.
+
+        </p>
+
+        <a href="/generator">
+
+            <button>
+
+                Generate Password
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="{{ url_for('static', filename='images/homeimg.png') }}"
+             alt="Professional password security illustration">
+
+    </div>
+
+</section>
+
+<hr>
+
+<section class="features">
+
+    <h2>Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h3>Secure Passwords</h3>
+
+            <p>
+
+                Generates highly secure passwords using Python's
+                secrets module.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-sliders"></i>
+
+            <h3>Custom Length</h3>
+
+            <p>
+
+                Choose your preferred password length according
+                to your requirements.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-shield"></i>
+
+            <h3>Password Strength</h3>
+
+            <p>
+
+                Displays password strength as Weak,
+                Medium or Strong.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-copy"></i>
+
+            <h3>Copy Password</h3>
+
+            <p>
+
+                Easily copy the generated password
+                with one click.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr>
+
+<section class="why">
+
+    <h2>
+
+        Why Use Our Password Generator?
+
+    </h2>
+
+    <p>
+
+        Password security is one of the most important aspects
+        of online safety.
+
+        Weak passwords can easily be guessed by attackers.
+
+        This Password Generator creates complex passwords
+        consisting of uppercase letters, lowercase letters,
+        digits and symbols, making them difficult to crack.
+
+        The application is developed using Flask,
+        HTML, CSS and JavaScript,
+        ensuring fast performance and an attractive interface.
+
+    </p>
+
+</section>
+
+{% endblock %}

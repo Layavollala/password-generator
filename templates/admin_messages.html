@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="admin-messages">
+
+    <h1>Administrator Inbox</h1>
+
+    <div class="admin-actions">
+        <a class="admin-logout" href="{{ url_for('admin_logout') }}">Log Out</a>
+    </div>
+
+    {% if messages %}
+        <div class="message-list">
+            {% for msg in messages %}
+                <div class="message-card">
+                    <div class="message-header">
+                        <h2>{{ msg.subject }}</h2>
+                        <span class="message-badge">New</span>
+                    </div>
+                    <div class="message-meta">
+                        <span><strong>From:</strong> {{ msg.name }}</span>
+                        <span><strong>Email:</strong> {{ msg.email }}</span>
+                        <span><strong>Received:</strong> {{ msg.received_at }}</span>
+                    </div>
+                    <p>{{ msg.message }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No messages have been submitted yet.</p>
+    {% endif %}
+
+</section>
+
+{% endblock %}
